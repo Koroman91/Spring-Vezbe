@@ -4,30 +4,23 @@
 ]>
 
 <beans>
-  <bean id="triangle" class="org.korolija.javabrains.Triangle">  
-    <property name="points">
-    <list>
-        <ref bean="zeroPoint"/>
-        <ref bean="point2"/>
-        <ref bean="point3"/>
-    </list>
-   
-   </property>
+  <bean id="triangle" class="org.korolija.javabrains.Triangle" autowire="byName">  
+
    </bean>
    
-   <bean id="zeroPoint" class="org.korolija.javabrains.Point">
+   <bean id="pointA" class="org.korolija.javabrains.Point">
        <property name="x" value="0" />
        <property name="y" value="0" />
    
    </bean>
    
-   <bean id="point2" class="org.korolija.javabrains.Point">
+   <bean id="pointB" class="org.korolija.javabrains.Point">
        <property name="x" value="0" />
        <property name="y" value="20" />
    
    </bean>
    
-   <bean id="point3" class="org.korolija.javabrains.Point">
+   <bean id="pointC" class="org.korolija.javabrains.Point">
        <property name="x" value="20" />
        <property name="y" value="20" />
    
