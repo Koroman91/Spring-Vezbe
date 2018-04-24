@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd" [
-<!ENTITY contextInclude SYSTEM "org/springframework/web/context/WEB-INF/contextInclude.xml">
-]>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+	xmlns:context="http://www.springframework.org/schema/context">
 
-<beans>
-  <bean id="triangle" class="org.korolija.javabrains.Triangle">
+	
+<!-- 	<bean id="triangle" class="org.korolija.javabrains.Triangle">
     <property name="pointA" ref="pointA"/>
           <property name="pointB" ref="pointB"/>
           <property name="pointC" ref="pointC"/>
       
-   </bean>
+   </bean> -->
         <bean id="pointA" class="org.korolija.javabrains.Point">
+        <qualifier value ="circleRelated"/>
        <property name="x" value="0" />
        <property name="y" value="0" />  
    </bean>
@@ -31,5 +34,6 @@
    
    </bean>
    
-   <bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"/>
+   <context:annotation-config/>
+	
 </beans>
