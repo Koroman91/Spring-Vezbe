@@ -5,6 +5,8 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
 	xmlns:context="http://www.springframework.org/schema/context">
 
+
+
 	
 <!-- 	<bean id="triangle" class="org.korolija.javabrains.Triangle">
     <property name="pointA" ref="pointA"/>
@@ -35,5 +37,7 @@
    </bean>
    
    <context:annotation-config/>
+   
+
 	
 </beans>
