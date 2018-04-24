@@ -17,7 +17,7 @@ public class DrawingApp {
 		
 		ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
 		//context.registerShutdownHook();
-		Shape shape = (Shape) context.getBean("triangle"); // maskiranje bean factory sa prosledjivanjem triangle id-ja
+		Shape shape = (Shape) context.getBean("circle"); // maskiranje bean factory sa prosledjivanjem triangle id-ja
 		shape.draw();
 	
 }
