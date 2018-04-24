@@ -3,28 +3,25 @@
 <!ENTITY contextInclude SYSTEM "org/springframework/web/context/WEB-INF/contextInclude.xml">
 ]>
 
-<beans>
+<beans default-init-method="myInit" default-destroy-method="cleanUp">
   <bean id="triangle" class="org.korolija.javabrains.Triangle" autowire="byName">  
-
+   </bean>
+        <bean id="pointA" class="org.korolija.javabrains.Point">
+       <property name="x" value="0" />
+       <property name="y" value="0" />  
    </bean>
    
-   <bean id="pointA" class="org.korolija.javabrains.Point">
-       <property name="x" value="0" />
+      <bean id="pointB" class="org.korolija.javabrains.Point">
+       <property name="x" value="20" />
        <property name="y" value="0" />
    
    </bean>
    
-   <bean id="pointB" class="org.korolija.javabrains.Point">
-       <property name="x" value="0" />
-       <property name="y" value="20" />
-   
-   </bean>
    
    <bean id="pointC" class="org.korolija.javabrains.Point">
        <property name="x" value="20" />
-       <property name="y" value="20" />
-   
+       <property name="y" value="0" />  
    </bean>
    
-
+   
 </beans>
