@@ -16,7 +16,7 @@
    </bean>
    
       <bean id="pointB" class="org.korolija.javabrains.Point">
-       <property name="x" value="20" />
+       <property name="x" value="-20" />
        <property name="y" value="0" />
    
    </bean>
@@ -27,6 +27,10 @@
        <property name="y" value="0" />  
    </bean>
    
-   <bean class="org.korolija.javabrains.DisplayNameBeanPostProcessor"/>
+     <bean id="circle" class="org.korolija.javabrains.Circle">
+    <property name="center" ref="pointA"/>
+      
+   </bean>
+   
    
 </beans>

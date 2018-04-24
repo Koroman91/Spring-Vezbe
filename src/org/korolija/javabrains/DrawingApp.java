@@ -15,10 +15,10 @@ public class DrawingApp {
 		
 		//BeanFactory factory = new XmlBeanFactory(new FileSystemResource("spring.xml"));
 		
-		AbstractApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
-		context.registerShutdownHook();
-		Triangle triangle = (Triangle) context.getBean("triangle"); // maskiranje bean factory sa prosledjivanjem triangle id-ja
-		triangle.draw();
+		ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
+		//context.registerShutdownHook();
+		Shape shape = (Shape) context.getBean("triangle"); // maskiranje bean factory sa prosledjivanjem triangle id-ja
+		shape.draw();
 	
 }
 }

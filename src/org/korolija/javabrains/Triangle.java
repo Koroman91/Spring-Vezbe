@@ -6,7 +6,7 @@ import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 
 
-public class Triangle implements InitializingBean, DisposableBean {
+public class Triangle implements Shape {
 	
 
     public Point getPointA() {
@@ -40,6 +40,7 @@ public class Triangle implements InitializingBean, DisposableBean {
 
 	public void draw()
 	{
+		System.out.println("Drawing Triangle");
 		System.out.println("Point A = (" + getPointA().getX() + ", " +getPointA().getY() +")");
 		System.out.println("Point B = (" + getPointB().getX() + ", " +getPointB().getY() +")");
 		System.out.println("Point C = (" + getPointC().getX() + ", " +getPointC().getY() +")");
@@ -51,7 +52,7 @@ public class Triangle implements InitializingBean, DisposableBean {
 		this.context = context;
 	}
 */
-	public void setBeanName(String beanName) {
+/*	public void setBeanName(String beanName) {
 		// TODO Auto-generated method stub
 		System.out.println("Bean name is: " +beanName);
 	}
@@ -78,6 +79,6 @@ public class Triangle implements InitializingBean, DisposableBean {
 		System.out.println("My cleanup method called for Triangle");
 
 	}
-	
+	*/
 	
 }
