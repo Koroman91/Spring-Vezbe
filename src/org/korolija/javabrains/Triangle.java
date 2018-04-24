@@ -2,7 +2,12 @@ package org.korolija.javabrains;
 
 import java.util.List;
 
-public class Triangle {
+import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.BeanNameAware;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
+
+public class Triangle implements ApplicationContextAware, BeanNameAware {
 	
 	
     public Point getPointA() {
@@ -32,12 +37,24 @@ public class Triangle {
 	private Point pointA;
     private Point pointB;
     private Point pointC;
+    private ApplicationContext context = null; 
 
 	public void draw()
 	{
 		System.out.println("Point A = (" + getPointA().getX() + ", " +getPointA().getY() +")");
 		System.out.println("Point B = (" + getPointB().getX() + ", " +getPointB().getY() +")");
 		System.out.println("Point C = (" + getPointC().getX() + ", " +getPointC().getY() +")");
+	}
+
+	public void setApplicationContext(ApplicationContext context) 
+			throws BeansException {
+		// TODO Auto-generated method stub
+		this.context = context;
+	}
+
+	public void setBeanName(String beanName) {
+		// TODO Auto-generated method stub
+		System.out.println("Bean name is: " +beanName);
 	}
 
 }
