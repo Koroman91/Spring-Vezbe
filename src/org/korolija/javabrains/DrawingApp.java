@@ -19,6 +19,6 @@ public class DrawingApp {
 		context.registerShutdownHook();
 		Shape shape = (Shape) context.getBean("circle"); // maskiranje bean factory sa prosledjivanjem triangle id-ja
 		shape.draw();
-	
+	    //System.out.println(context.getMessage("greeting", null, "Default Greeting", null));
 }
 }
