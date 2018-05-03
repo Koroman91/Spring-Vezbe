@@ -12,5 +12,8 @@ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
 </bean>
 
+<alias name="message" alias="MyMessage1"/>
+<alias name="message" alias="MyMessage2"/>
+
 
 </beans>

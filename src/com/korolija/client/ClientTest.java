@@ -22,6 +22,35 @@ public class ClientTest {
 			System.out.println(message.getMessageId()+"\t"+message.getMessage());
 			
 		}
+		
+		System.out.println("--------------------------------------------------");
+		
+		Poruka message = beanFactory.getBean("message", Poruka.class);
+		
+		
+		System.out.println("--------------------------------------------------");
+		
+		String[] aliases = beanFactory.getAliases("message");
+		
+		for (String aName : aliases)
+		{
+			System.out.println(aName);
+		}
+		
+		System.out.println("--------------------------------------------------");
+
+		Poruka message2 = beanFactory.getBean(Poruka.class);
+		System.out.println(message.getMessageId()+"\t"+message.getMessage());
+
+		System.out.println("--------------------------------------------------");
+
+		Class<?> cls = beanFactory.getType("message");
+		System.out.println(cls.getName());
+		
+		System.out.println("--------------------------------------------------");
+
+		System.out.println(beanFactory.isSingleton("message"));
+
 	}
 
 }
