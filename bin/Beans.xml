@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context.xsd">
+           
+          <bean id="orgInfo" class="com.korolija.info.OrgInfo">
+          
+          <property name="namesArr">
+          <array>
+          <value>Stefan</value>
+          <value>Ivan</value>
+          <value>Nikola</value>
+          </array>
+          </property>
+          
+           <property name="empNameList">
+          <list>
+          <value>Darko</value>
+          <value>Jovan</value>
+          <value>Djordje</value>
+          </list>
+          </property>
+          
+          <property name="empIdsSet">
+          <set>
+          <value>91</value>
+          <value>92</value>
+          <value>93</value>
+          </set>
+          </property>
+          
+          
+          </bean>
+                    
+      
+          
+          
+           
+ </beans>
