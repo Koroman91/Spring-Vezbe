@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context.xsd">
+           
+      <bean id="companyInfo" class="com.korolija.info.CompanyInfo">
+      <property name="empIdAndNameMap">
+      <map>
+      <entry key="1001" value="Stefan Korolija"></entry>
+      <entry key="2002" value="Ivan Korolija"></entry>
+      </map>
+      </property>
+      <property name="studentIdMap">
+      <map>
+      <entry key="0001" value-ref="student1"></entry>
+      <entry key="0002" value-ref="student2"></entry>
+      </map>
+      </property>
+      </bean>
+                    
+      <bean id="student1" class="com.korolija.model.Student">
+      <property name="studentId" value="0001"></property>
+      <property name="studentName" value="Stefan Korolija"></property>
+      <property name="email" value="korolija91@gmail.com"></property>
+      <property name="gender" value="Male"></property>
+      </bean>
+        
+       <bean id="student2" class="com.korolija.model.Student">
+      <property name="studentId" value="0002"></property>
+      <property name="studentName" value="Ivan Korolija"></property>
+      <property name="email" value="ivankorolija91@gmail.com"></property>
+      <property name="gender" value="Male"></property>
+      </bean>
+      
+
+          
+           
+ </beans>
