@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context.xsd">
+           
+      <bean id="student1" class="com.korolija.model.Student">     
+      <property name="name" value="Stefan Korolija"></property> 
+      <property name="marks" value="70"></property>  
+      </bean>
+      
+      <bean id="student2" class="com.korolija.model.Student">     
+      <property name="name" value="Miodrag Korolija"></property> 
+      <property name="marks" value="50"></property>  
+      </bean>
+      
+      <bean id="student3" class="com.korolija.model.Student">     
+      <property name="name" value="Natasa Korolija"></property> 
+      <property name="marks" value="90"></property>  
+      </bean>
+      
+      <bean id="student4" class="com.korolija.model.Student">     
+      <property name="name" value="Ivan Korolija"></property> 
+      <property name="marks" value="20"></property>  
+      </bean>
+      
+      <bean id="studentList" class="java.util.ArrayList">  
+       <constructor-arg>
+       <list>
+       <ref bean="student1"/>
+       <ref bean="student2"/>
+       <ref bean="student3"/>
+       <ref bean="student4"/>
+       </list>
+       </constructor-arg>
+
+      </bean>
+      
+      <bean id="studentListAccessor" class="com.korolija.model.StudentListAccessor">
+      <property name="thirdStudentInList" value="#{studentList[2]}"></property>
+      <property name="failedStudents" value="#{studentList.?[marks lt 40]}"></property>
+      <property name="studentNames" value="#{studentList.![name]}"></property>
+      </bean>
+      
+      
+                 
+ </beans>
