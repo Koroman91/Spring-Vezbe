@@ -48,21 +48,31 @@ public class EmployeeDAOImplementation implements EmployeeDAO {
 
 	@Override
 	public void deleteEmployeeById(int employeeId) {
-		
+		String SQL="DELETE FROM employee_table WHERE employee_Id=?";
+		int update = jdbcTemplate.update(SQL, employeeId);
+		if (update>0) {
+			System.out.print("Email is deleted!");
+		}
 	}
 
 
 
 	@Override
 	public void updateEmployeeEmailById(String newEmail, int employeeId) {
-		
+		String SQL="UPDATE employee_table SET email=? WHERE employee_Id=?";
+		int update = jdbcTemplate.update(SQL, newEmail, employeeId);
+		if (update>0) {
+			System.out.print("Email is updated!");
+		}
 	}
 
 
 
 	@Override
 	public List<Employee> getAllEmployeesDetails() {
-		return null;
+		String SQL="SELECT * FROM employee_table";
+		//List<Employee> query = jdbcTemplate.query(SQL, new EmployeeRowMapper());
+		return jdbcTemplate.query(SQL, new EmployeeRowMapper());
 	}
 
 
