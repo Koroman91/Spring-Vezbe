@@ -16,16 +16,23 @@ public class ClientTest {
 		
 		EmployeeService employeeService = ctx.getBean("employeeService", EmployeeServiceImplementation.class);
 		
+		createEmployee(employeeService);
+		
+		Employee employee = employeeService.fetchEmployeeById(2);
+		
+		System.out.println(employee.getEmployeeId()+"\t"+employee.getEmployeeName());
+		ctx.close();
+
+
+	}
+
+	private static void createEmployee(EmployeeService employeeService) {
 		Employee employee = new Employee();
-		employee.setEmail("korolija91@gmail.com");
-		employee.setEmployeeName("Stefan");
+		employee.setEmail("nikola@gmail.com");
+		employee.setEmployeeName("Nikola");
 		employee.setGender("Male");
 		employee.setSalary(90000.00);
 		
 		employeeService.addEmployee(employee);
-		
-		ctx.close();
-
-
 	}
 }
