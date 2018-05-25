@@ -16,13 +16,19 @@ import com.korolija.model.Employee;
 
 public class EmployeeDAOImplementation implements EmployeeDAO {
 
-	private DataSource dataSource;
+	//private DataSource dataSource;
 	private JdbcTemplate jdbcTemplate;
 		
-	public void setDataSource(DataSource dataSource) {
+/*	public void setDataSource(DataSource dataSource) {
 		this.dataSource = dataSource;
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
+	}*/
+	
+	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
+		this.jdbcTemplate = jdbcTemplate;
 	}
+
+	
 
 	@Override
 	public void createEmployee(Employee employee) {
@@ -34,6 +40,9 @@ public class EmployeeDAOImplementation implements EmployeeDAO {
         	
     		System.out.println("Employee is created!");
 	}
+
+
+
 
 
 
