@@ -40,6 +40,7 @@ public class EmployeeServiceImplementation implements EmployeeService {
 
 	@Override
 	public List<Employee> getAllEmployeesInfo() {
+		
 		return employeeDAO.getAllEmployeesDetails();
 	}
 

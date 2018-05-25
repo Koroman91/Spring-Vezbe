@@ -22,7 +22,7 @@ public class ClientTest {
 		
 		//getEmployeeById(employeeService);
 		
-		//fetchAllEmployeesInfo(employeeService);
+		fetchAllEmployeesInfo(employeeService);
 		
 		//employeeService.updateEmployeeEmailById("stefankorolija1991@gmail.com", 2);
 		
