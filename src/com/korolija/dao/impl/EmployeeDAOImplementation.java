@@ -12,6 +12,7 @@ import java.util.Map;
 import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
 import com.korolija.dao.EmployeeDAO;
@@ -49,8 +50,13 @@ public class EmployeeDAOImplementation implements EmployeeDAO {
 		
 		String SQL="SELECT * FROM employee_table WHERE employee_id=:empId";
 
-        Map<String, Object> inputMap = new HashMap<>();
-        inputMap.put("empId", employeeId);
+       /* Map<String, Object> inputMap = new HashMap<>();
+        inputMap.put("empId", employeeId);*/
+		
+		
+		MapSqlParameterSource inputMap = new MapSqlParameterSource();
+		inputMap.addValue("empId", employeeId);
+		
 		Employee employee = namedParameterJdbcTemplate.queryForObject(SQL, inputMap, new EmployeeRowMapper());
 		return employee;
 	}
@@ -59,10 +65,17 @@ public class EmployeeDAOImplementation implements EmployeeDAO {
 
 	@Override
 	public void deleteEmployeeById(int employeeId) {
-/*		String SQL="DELETE FROM employee_table WHERE employee_Id=?";
-		int update = jdbcTemplate.update(SQL, employeeId);
+	String SQL="DELETE FROM employee_table WHERE employee_Id=:empId";
+	
+	MapSqlParameterSource inputMap = new MapSqlParameterSource();
+	inputMap.addValue("empId", employeeId);	
+		
+		
+		int update = namedParameterJdbcTemplate.update(SQL, inputMap);
 		if (update>0) {
-			System.out.print("Email is deleted!");*/
+			System.out.print("Email is deleted!");
+		}
+	
 		}
 	
 
@@ -70,32 +83,44 @@ public class EmployeeDAOImplementation implements EmployeeDAO {
 
 	@Override
 	public void updateEmployeeEmailById(String newEmail, int employeeId) {
-/*		String SQL="UPDATE employee_table SET email=? WHERE employee_Id=?";
-		int update = jdbcTemplate.update(SQL, newEmail, employeeId);
-		if (update>0) {
-			System.out.print("Email is updated!");*/
+		String SQL="UPDATE employee_table SET email=:newEmail WHERE employee_Id=:empId";
 		
+		MapSqlParameterSource inputMap = new MapSqlParameterSource();
+		inputMap.addValue("empId", employeeId);
+		inputMap.addValue("newEmail", newEmail);
+		
+		int update = namedParameterJdbcTemplate.update(SQL, inputMap);
+		if (update>0) {
+			System.out.print("Email is updated!");
+		}
 	}
 
 
 
 	@Override
 	public List<Employee> getAllEmployeesDetails() {
-		return null;
-/*		String SQL="SELECT * FROM employee_table";
+		
+	String SQL="SELECT * FROM employee_table";
+	List<Employee> empList = namedParameterJdbcTemplate.query(SQL, new EmployeeRowMapper());
 		//List<Employee> query = jdbcTemplate.query(SQL, new EmployeeRowMapper());
-		return jdbcTemplate.query(SQL, new EmployeeRowMapper());*/
+		//return jdbcTemplate.query(SQL, new EmployeeRowMapper());
+		return empList;
 	}
 
 	@Override
 	public void createEmployee(Employee employee) {
-/*    	String SQL ="INSERT INTO employee_table(employee_name,email,gender,salary) VALUES(?,?,?,?)";
-        int update = jdbcTemplate.update(SQL, new Object[] {employee.getEmployeeName(),employee.getEmail(), employee.getGender(), employee.getSalary()});
-    	int update=jdbcTemplate.update("INSERT INTO employee_table(employee_name,email,gender,salary) VALUES(?,?,?,?)", employee.getEmployeeName(),employee.getEmail(), employee.getGender(), employee.getSalary());
-		
+   	String SQL ="INSERT INTO employee_table(employee_name,email,gender,salary) VALUES(:empName,:email,:gender,:sal)";
+       
+   	MapSqlParameterSource inputMap = new MapSqlParameterSource();
+	inputMap.addValue("empName", employee.getEmployeeName());
+	inputMap.addValue("email", employee.getEmail());
+	inputMap.addValue("gender", employee.getGender());
+	inputMap.addValue("sal", employee.getSalary());
+   	
+    int update = namedParameterJdbcTemplate.update(SQL, inputMap);
 		if (update>0)
         	
-    		System.out.println("Employee is created!");*/
+    		System.out.println("Employee is created!");
 		
 		
 	}

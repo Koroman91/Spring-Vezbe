@@ -20,11 +20,11 @@ public class ClientTest {
 		
 		//createEmployee(employeeService);
 		
-		getEmployeeById(employeeService);
+		//getEmployeeById(employeeService);
 		
 		//fetchAllEmployeesInfo(employeeService);
 		
-		//employeeService.updateEmployeeEmailById("stefankorolija1991@gmail.com", 2);
+		//employeeService.updateEmployeeEmailById("miodragkorolija@yahoo.com", 3);
 		
 		employeeService.deleteEmployeeById(3);
 		ctx.close();
@@ -46,10 +46,10 @@ public class ClientTest {
 
 	private static void createEmployee(EmployeeService employeeService) {
 		Employee employee = new Employee();
-		employee.setEmail("nikola@gmail.com");
-		employee.setEmployeeName("Nikola");
+		employee.setEmail("miodrag@gmail.com");
+		employee.setEmployeeName("Miodrag");
 		employee.setGender("Male");
-		employee.setSalary(90000.00);
+		employee.setSalary(70000.00);
 		
 		employeeService.addEmployee(employee);
 	}
