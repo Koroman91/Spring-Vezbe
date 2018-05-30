@@ -22,11 +22,11 @@ public class ClientTest {
 		
 		//getEmployeeById(employeeService);
 		
-		//fetchAllEmployeesInfo(employeeService);
+		fetchAllEmployeesInfo(employeeService);
 		
 		//employeeService.updateEmployeeEmailById("miodragkorolija@yahoo.com", 3);
 		
-		employeeService.deleteEmployeeById(3);
+		//employeeService.deleteEmployeeById(3);
 		ctx.close();
 
 
